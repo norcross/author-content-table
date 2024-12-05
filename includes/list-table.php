@@ -416,7 +416,7 @@ class Author_Content_Table_List extends WP_List_Table {
 
 			// Do the various term dropdown.
 			$this->get_taxonomy_dropdown( 'category' );
-			$this->get_taxonomy_dropdown( 'post_tags' );
+			$this->get_taxonomy_dropdown( 'post_tag' );
 
 			// Allow extra items to be added.
 			do_action( Core\HOOK_PREFIX . 'extra_tablenav', $which );
@@ -804,7 +804,7 @@ class Author_Content_Table_List extends WP_List_Table {
 				'id'             => $set_data['ID'],
 				'title'          => $set_title,
 				'categories'     => AuthorQueries\query_single_item_term_data( $set_data['ID'], 'category' ),
-				'post_tags'      => AuthorQueries\query_single_item_term_data( $set_data['ID'], 'post_tags' ),
+				'post_tags'      => AuthorQueries\query_single_item_term_data( $set_data['ID'], 'post_tag' ),
 				'post_type'      => $set_data['post_type'],
 				'date'           => $set_data['post_date'],
 				'stamp'          => strtotime( $set_data['post_date'] ),
@@ -995,6 +995,14 @@ class Author_Content_Table_List extends WP_List_Table {
 
 		// Bail if that isn't there.
 		if ( empty( $tax_object ) ) {
+			return;
+		}
+
+		// Check and see if we have any created terms at all.
+		$confirm_it = get_terms( ['taxonomy' => $taxonomy, 'hide_empty' => false ] );
+
+		// Bail without any created terms.
+		if ( empty( $confirm_it ) ) {
 			return;
 		}
 
