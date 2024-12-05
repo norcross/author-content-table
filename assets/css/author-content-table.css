@@ -1,0 +1,42 @@
+
+
+.ac-table-admin-wrap ul.ac-table-subsubsub {
+	margin: 0;
+	line-height: 30px;
+}
+
+.ac-table-admin-wrap li.ac-table-admin-title-inline-author {
+	margin-left: 20px;
+	color: #3c434a;
+}
+
+.ac-table-admin-wrap .tablenav.top {
+	margin-top: 0;
+	padding-top: 9px;
+}
+
+.ac-admin-form .ac-table-input-element {
+	margin-right: 5px;
+}
+
+table.author-content-table th.column-blank,
+table.author-content-table td.column-blank {
+	width: 10px;
+	padding: 4px 0 0 3px;
+}
+
+table.author-content-table th.column-title,
+table.author-content-table td.column-title {
+	width: 265px;
+}
+
+table.author-content-table th.column-featured_image,
+table.author-content-table td.column-featured_image {
+	width: 130px;
+	text-align: center;
+}
+
+table.author-content-table th.column-post_type,
+table.author-content-table td.column-post_type {
+	width: 165px;
+}
